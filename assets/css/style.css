@@ -6,33 +6,81 @@
 
 
 .main_container{
-   
+    background-image: url(/assets/images/soccer_bg.jpg);
     display: flex;
     justify-content: center;
-    
-    
+    justify-items: center; 
+    width: 100%;
+    height: 1200px;
+    background-repeat: no-repeat  ;
+    background-size: cover;
 }
 
-.bg{
-   width: 100vw;
-    height: auto;  
-    position: relative;
-    z-index: 0;  
-}
+
 
 .players_positions{
+    background-image: url(../images/soccer_field_possition.png);
     position: relative;
     z-index: 1;
+    background-repeat: no-repeat; 
+    width: 100%;
+    height: auto;
+    margin-left: 300px;
 }
 
 
+/* styling the player card */
 
-/* .soccer_possition{
-   background-image: url(../images/soccer_field_possition.png);
-   width: 100%;
-   height: 400px;
-   position: relative;
-   z-index: 1;
-   background-repeat: no-repeat;
-} */
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+}
 
+.fut-player-card {
+    width: 200px;
+    height: 300px;
+    background-image: url(https://selimdoyranli.com/cdn/fut-player-card/img/card_bg.png);
+    background-size: cover;
+    padding: 2rem 0;
+    color: #e9cc74;
+    text-align: center;
+}
+
+.player-card-top {
+    padding: 0 1rem;
+}
+
+.player-master-info {
+    font-size: 0.9rem;
+}
+
+.player-picture img {
+    width: 100%;
+    height: auto;
+}
+
+.player-extra {
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+}
+
+.player-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+
+.player-features {
+    display: flex;
+    justify-content: space-around;
+}
+
+.player-feature-value {
+    font-weight: bold;
+    margin-right: 0.2rem;
+}
+
+/* styling the player card */
