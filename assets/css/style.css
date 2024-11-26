@@ -23,64 +23,114 @@
     position: relative;
     z-index: 1;
     background-repeat: no-repeat; 
-    width: 100%;
-    height: auto;
-    margin-left: 300px;
+    width: 80%;
+    height: 700px;
+    background-size: cover;
+margin-top: 130px;
+bottom: 140px;   
+left: 50px; 
+margin-right: 120px; 
+display: grid;
+grid-template-columns: 65px 1fr 1fr 1fr 1fr 65px;
+grid-template-rows: 65px 1fr 15px ;
+grid-template-areas: 
+". . . . . ."
+". attack SDM defence GK ."
+". . . . . ."
+; 
 }
+
+.goal_keeper {
+    color: red;
+    grid-area: GK;
+    display:flex;
+    
+    justify-content: center;
+    align-items: center;
+        }
+
+
+.defence {
+    color: red;
+    grid-area: defence;
+    display:flex;  
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+justify-content: space-around;
+}
+
+.sdm {
+    color: red;
+    grid-area: SDM;
+        display:flex; 
+        justify-content: center;
+        flex-direction: column;
+    gap: 10px ;
+    align-items: center; 
+}
+
+.attack {
+    color: red;
+    grid-area: attack;
+        display:flex; 
+        justify-content: center;
+    align-items: center;
+        flex-direction: column; 
+        gap: 50px;
+}
+
+.empty_card{
+   width: 100px ;
+    height: 140px ;
+    transform: rotate(0deg);
+    
+        }
+
+.empty_card_sdm{
+   width: 100px ;
+    height: 140px ;
+    transform: rotate(0deg); 
+    margin-left: 70px;
+}
+.empty_card_attack{
+    width: 100px ;
+    height: 140px ;
+    transform: rotate(0deg); 
+    margin-left: 90px;   
+}
+.empty_card_attack_special{
+   width: 100px ;
+    height: 140px ;
+    transform: rotate(0deg); 
+    margin-left: 70px;     
+}
+
+
+
 
 
 /* styling the player card */
 
-.wrapper {
+.player_card {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100vh;
 }
 
-.fut-player-card {
-    width: 200px;
-    height: 300px;
-    background-image: url(https://selimdoyranli.com/cdn/fut-player-card/img/card_bg.png);
+.top_card_side {
+    width: 100px ;
+    height: 140px ;
+    background-image: url(https://www.futbin.com/design2/img/static/evolutions/placeholder-card-normal.webp);
     background-size: cover;
-    padding: 2rem 0;
-    color: #e9cc74;
     text-align: center;
 }
 
-.player-card-top {
-    padding: 0 1rem;
-}
-
-.player-master-info {
-    font-size: 0.9rem;
-}
-
-.player-picture img {
-    width: 100%;
+.player-nation img{
+    width: 20px;
     height: auto;
 }
-
-.player-extra {
-    font-size: 0.8rem;
-    margin-top: 0.5rem;
-}
-
-.player-name {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin: 0.5rem 0;
-}
-
-.player-features {
-    display: flex;
-    justify-content: space-around;
-}
-
-.player-feature-value {
-    font-weight: bold;
-    margin-right: 0.2rem;
+.player-club img{
+    width: 20px;
+    height: auto;
 }
 
 /* styling the player card */
