@@ -82,27 +82,22 @@ justify-content: space-around;
 
 .empty_card{
    width: 100px ;
-    height: 147px ;
-    transform: rotate(0deg);
-    
+    height: 147px ;    
         }
 
 .empty_card_sdm{
    width: 100px ;
-    height: 147px ;
-    transform: rotate(0deg); 
+    height: 147px ; 
     margin-left: 70px;
 }
 .empty_card_attack{
     width: 100px ;
     height: 147px ;
-    transform: rotate(0deg); 
     margin-left: 90px;   
 }
 .empty_card_attack_special{
    width: 100px ;
     height: 147px ;
-    transform: rotate(0deg); 
     margin-left: 70px;     
 }
 
