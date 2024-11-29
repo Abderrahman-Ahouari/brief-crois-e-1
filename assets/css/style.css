@@ -6,7 +6,7 @@
 
 
 .main_container{
-    background-image: url(/assets/images/soccer_bg.jpg);
+    background-image: url(assets/images/soccer_bg.jpg);
     display: flex;
     justify-content: center;
     justify-items: center; 
@@ -20,7 +20,7 @@
 
 
 .players_positions{
-    background-image: url(../images/soccer_field_possition.png);
+    background-image: url(/assets/images/soccer_field_possition.png);
     position: relative;
     z-index: 1;
     background-repeat: no-repeat; 
