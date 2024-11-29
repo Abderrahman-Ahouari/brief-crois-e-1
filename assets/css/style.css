@@ -6,7 +6,7 @@
 
 
 .main_container{
-    background-image: url(assets/images/soccer_bg.jpg);
+    background-image: url(/assets/images/soccer_bg.jpg);
     display: flex;
     justify-content: center;
     justify-items: center; 
