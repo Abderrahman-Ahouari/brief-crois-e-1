@@ -483,7 +483,7 @@ function get_player_info() {
     player.name.toLowerCase().includes(query)
   );
 
-  if (foundPlayer) { 
+  if (foundPlayer) {  
      
     // Populate form fields with player details
     playerNameElement.textContent = foundPlayer.name; // Display name
@@ -522,9 +522,9 @@ function get_player_info() {
     static1.value = foundPlayer.diving; // Pace
     static2.value = foundPlayer.handling; // Shooting
     static3.value = foundPlayer.kicking; // Passing
-    static4.value = foundPlayer.positioning; // Defending
-    static5.value = foundPlayer.reflexes; // Dribbling
-    static6.value = foundPlayer.speed; // Physicality
+    static4.value = foundPlayer.reflexes; // Defending
+    static5.value = foundPlayer.speed; // Dribbling
+    static6.value = foundPlayer.positioning; // Physicality
 
     }
 
