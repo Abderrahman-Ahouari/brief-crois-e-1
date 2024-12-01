@@ -416,7 +416,7 @@ const players = [
           "positioning": 85
         }
       
-  ];
+  ]; 
   
 // Declare all 11 player cards
 const goalkeeperCard = document.getElementById("goalkeeper-card");
@@ -441,28 +441,23 @@ const playerCards = [
   rwCard, stCard, lwCard
 ];
 
-console.log(playerCards);
+console.log(players);
 
-// form visibility 
-function show_hidde_form() {
-  addingForm.classList.toggle("hidden")
-}
 
 
  
 
-// array to push the objects in 
-const players_in_field =[] 
+
 
 
 
 // Declare necessary elements for inputs and form
 const addingForm = document.getElementById("form");
 const searchInput = document.getElementById("search");
-const playerNameElement = document.getElementById("player-name");
-const playerPhotoElement = document.getElementById("player-photo");
-const playerNationalityElement = document.getElementById("player-nationality");
-const playerClubElement = document.getElementById("player-club");
+const playerNameElement = document.getElementById("player_name");
+const playerPhotoElement = document.getElementById("player_photo");
+const playerNationalityElement = document.getElementById("player_nationality");
+const playerClubElement = document.getElementById("player_club");
 const positionDropdown = document.getElementById("position");
 const ratingInput = document.getElementById("rating");
 const static1 = document.getElementById("pace");
@@ -474,6 +469,10 @@ const static6 = document.getElementById("physicality");
 const save_button = document.getElementById("save");
 
 
+// form visibility 
+function show_hidde_form() {
+  addingForm.classList.toggle("hidden")
+}
 
 
 
@@ -484,16 +483,17 @@ function get_player_info() {
   );
 
   if (foundPlayer) {  
-     
-    // Populate form fields with player details
-    playerNameElement.textContent = foundPlayer.name; // Display name
-    playerPhotoElement.textContent = foundPlayer.photo; // Player photo
-    playerNationalityElement.textContent = foundPlayer.flag; // Nationality
-    playerClubElement.textContent = foundPlayer.logo; // Club
+
+    if(["CB1", "CB2", "CB3", "RM", "CM1", "CM2", "LM", "LW", "ST", "RW"].includes(foundPlayer.position)){
+
+    //  adding player info to the inputs 
+    playerNameElement.value = foundPlayer.name; // Display name
+    playerPhotoElement.value = foundPlayer.photo; // Player photo
+    playerNationalityElement.value = foundPlayer.flag; // Nationality
+    playerClubElement.value = foundPlayer.logo; // Club
     positionDropdown.value = foundPlayer.position; // Set position
     ratingInput.value = foundPlayer.rating; // Player rating
 
-    // Populate stats fields
     static1.value = foundPlayer.pace; // Pace
     static2.value = foundPlayer.shooting; // Shooting
     static3.value = foundPlayer.passing; // Passing
@@ -501,8 +501,9 @@ function get_player_info() {
     static5.value = foundPlayer.dribbling; // Dribbling
     static6.value = foundPlayer.physical; // Physicality
 
-    if (foundPlayer.position === "GK") {
-      // declatre element to change in this situation 
+    }else if (foundPlayer.position === "GK") {
+
+    //  declaring stats labels
       const divinglabel = document.getElementById("diving");
       const handlinglabe = document.getElementById("handling");
       const kicking = document.getElementById("kicking");
@@ -510,7 +511,7 @@ function get_player_info() {
       const speedlabel = document.getElementById("speed");
       const positioninglabel = document.getElementById("positioning");
    
-      // change text content for those elements 
+      // change text content for those labels 
       divinglabel.textContent = "diving"; 
       handlinglabe.textContent = "handling"; 
       kicking.textContent = "kicking"; 
@@ -518,28 +519,88 @@ function get_player_info() {
       speedlabel.textContent = "speed";
       positioninglabel.textContent = "positioning";
 
+    //  adding player info to the inputs 
+    playerNameElement.value = foundPlayer.name; // Display name
+    playerPhotoElement.value = foundPlayer.photo; // Player photo
+    playerNationalityElement.value = foundPlayer.flag; // Nationality
+    playerClubElement.value = foundPlayer.logo; // Club
+    positionDropdown.value = foundPlayer.position; // Set position
+    ratingInput.value = foundPlayer.rating; // Player rating
 
-    static1.value = foundPlayer.diving; // Pace
-    static2.value = foundPlayer.handling; // Shooting
-    static3.value = foundPlayer.kicking; // Passing
-    static4.value = foundPlayer.reflexes; // Defending
-    static5.value = foundPlayer.speed; // Dribbling
-    static6.value = foundPlayer.positioning; // Physicality
-
+      static1.value = foundPlayer.diving; // Pace
+      static2.value = foundPlayer.handling; // Shooting
+      static3.value = foundPlayer.kicking; // Passing
+      static4.value = foundPlayer.reflexes; // Defending
+      static5.value = foundPlayer.speed; // Dribbling
+      static6.value = foundPlayer.positioning; // Physicality
     }
-
+     
   } else {
     alert("Player not found!");
-  }
+  } 
 } 
 
+// array to push the objects in 
+const players_in_field =[] 
+
+
+// function to stor the informations of players in the field 
 
 function store_player_info() {
-
+    
   
-
+  if(positionDropdown.value === "GK"){
+      let GK_info = {
+       name : playerNameElement.value,
+       photo : playerPhotoElement.value,
+       club :playerClubElement.value ,
+       nationality : playerNationalityElement.value ,
+       position : positionDropdown.value ,
+       rating : ratingInput.value ,
+       diving : static1.value,
+       handling :static2.value ,
+       kicking :static3.value ,
+       reflexes :static4.value ,  
+       speed :static5.value ,
+       positioning :static6.value ,
+      }
+      players_in_field.push(GK_info);
+  }
+  else if(["CB1", "CB2", "CB3", "RM", "CM1", "CM2", "LM", "LW", "ST", "RW"].includes(positionDropdown.value)) {
+    let players_info = {
+      name : playerNameElement.value,
+      photo : playerPhotoElement.value,
+      club :playerClubElement.value ,
+      nationality : playerNationalityElement.value ,
+      position : positionDropdown.value ,
+      rating : ratingInput.value ,
+      pace : static1.value,
+      shooting :static2.value ,
+      passing :static3.value ,
+      defending :static4.value ,
+      dribbling :static5.value ,
+      physical :static6.value ,
+     }  
+     players_in_field.push(players_info);
+  }    
 }
 
+// a function to empty the form inputs 
+function empty_form() {
+  playerNameElement.value = ""; // Display name
+  playerPhotoElement.value = ""; // Player photo
+  playerNationalityElement.value = ""; // Nationality
+  playerClubElement.value = ""; // Club
+  positionDropdown.value = ""; // Set position
+  ratingInput.value = ""; // Player rating
+
+    static1.value = ""; // Pace
+    static2.value = ""; // Shooting
+    static3.value = ""; // Passing
+    static4.value = ""; // Defending
+    static5.value = ""; // Dribbling
+    static6.value = ""; // Physicality 
+}
 
 
 

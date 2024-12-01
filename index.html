@@ -27,13 +27,34 @@
         </div>
     
         <!-- Static Information -->
-        <div class="mb-6">
-          <h2 class="text-lg font-semibold mb-2">Player Information</h2>
-          <p><strong>Name:</strong> <span id="player-name" class="text-gray-800"></span></p>
-          <p><strong>photo:</strong> <span id="player-photo" class="text-gray-800"></span></p>
-          <p><strong>Nationality:</strong> <span id="player-nationality" class="text-gray-800"></span></p>
-          <p><strong>Club:</strong> <span id="player-club" class="text-gray-800"></span></p>
-        </div>
+<div class="mb-6">
+  <h2 class="text-lg font-semibold mb-2">Player Informations</h2>
+  
+  <!-- Name Input -->
+  <div class="mb-4">
+    <label for="player-name" class="block text-gray-800 font-medium mb-1">Name:</label>
+    <input type="text" id="player_name" class="w-full border-gray-300 rounded-md p-2 text-gray-800" placeholder="Enter player's name">
+  </div>
+
+  <!-- Photo Input -->
+  <div class="mb-4">
+    <label for="player-photo" class="block text-gray-800 font-medium mb-1">Photo:</label>
+    <input type="text" id="player_photo" class="w-full border-gray-300 rounded-md p-2 text-gray-800" placeholder="Enter player's photo URL">
+  </div>
+
+  <!-- Nationality Input -->
+  <div class="mb-4">
+    <label for="player-nationality" class="block text-gray-800 font-medium mb-1">flag_photo:</label>
+    <input type="text" id="player_nationality" class="w-full border-gray-300 rounded-md p-2 text-gray-800" placeholder="Enter player's nationality">
+  </div>
+
+  <!-- Club Input -->
+  <div class="mb-4">
+    <label for="player-club" class="block text-gray-800 font-medium mb-1">Club_logo:</label>
+    <input type="text" id="player_club" class="w-full border-gray-300 rounded-md p-2 text-gray-800" placeholder="Enter player's club">
+  </div>
+</div>
+
     
         <!-- Player Inputs -->
         <div class="mb-6">
@@ -160,7 +181,7 @@
         <!-- Save Button -->
         <div class="text-right">
           <button
-          
+          onclick="store_player_info(),show_hidde_form()" 
           id="save"
             type="submit"
             class="px-4 py-2 bg-blue-600 text-white font-medium rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
