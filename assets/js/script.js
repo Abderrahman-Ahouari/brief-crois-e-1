@@ -447,7 +447,7 @@ console.log(players);
 
  
 
-
+      
 
 
 
@@ -543,9 +543,7 @@ function get_player_info() {
 // array to push the objects in 
 const players_in_field =[] 
 
-
 // function to stor the informations of players in the field 
-
 function store_player_info() {
     
   
@@ -582,11 +580,13 @@ function store_player_info() {
       physical :static6.value ,
      }  
      players_in_field.push(players_info);
-  }    
+  }
 }
+
 
 // a function to empty the form inputs 
 function empty_form() {
+  searchInput.value = ""; 
   playerNameElement.value = ""; // Display name
   playerPhotoElement.value = ""; // Player photo
   playerNationalityElement.value = ""; // Nationality
@@ -603,5 +603,9 @@ function empty_form() {
 }
 
 
+// a function to validat or reject the inputs if they dont 
+function validat_inputs() {
+  
+} 
 
-
+console.log(players_in_field);
