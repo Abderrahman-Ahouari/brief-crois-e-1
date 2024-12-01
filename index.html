@@ -64,7 +64,7 @@
             <div>
               <label for="rating" class="block text-sm font-medium text-gray-700">Rating</label>
               <input
-                type="number"
+                type="text"
                 id="rating"
                 name="rating"
                 min="0"
@@ -102,7 +102,7 @@
             <div>
               <label id="diving" for="pace" class="block text-sm font-medium text-gray-700">Pace</label>
               <input
-                type="number"
+                type="text"
                 id="pace"
                 name="pace"
                 min="0"
@@ -115,7 +115,7 @@
             <div>
               <label id="handling" for="shooting" class="block text-sm font-medium text-gray-700">Shooting</label>
               <input
-                type="number"
+                type="text"
                 id="shooting"
                 name="shooting"
                 min="0"
@@ -128,7 +128,7 @@
             <div>
               <label id="kicking" for="passing" class="block text-sm font-medium text-gray-700">Passing</label>
               <input
-                type="number"
+                type="text"
                 id="passing"
                 name="passing"
                 min="0"
@@ -141,7 +141,7 @@
             <div>
               <label id="reflexes" for="defending" class="block text-sm font-medium text-gray-700">Defending</label>
               <input
-                type="number"
+                type="text"
                 id="defending"
                 name="defending"
                 min="0"
@@ -154,7 +154,7 @@
             <div>
               <label id="speed" for="dribbling" class="block text-sm font-medium text-gray-700">Dribbling</label>
               <input
-                type="number"
+                type="text"
                 id="dribbling"
                 name="dribbling"
                 min="0"
@@ -167,7 +167,7 @@
             <div>
               <label id="positioning" for="physicality" class="block text-sm font-medium text-gray-700">Physicality</label>
               <input
-                type="number"
+                type="text"
                 id="physicality"
                 name="physicality"
                 min="0"
@@ -181,7 +181,7 @@
         <!-- Save Button -->
         <div class="text-right">
           <button
-          onclick="store_player_info(),show_hidde_form(), empty_form()" 
+          onclick="validation_inputs()" 
           id="save"
             type="submit"
             class="px-4 py-2 bg-blue-600 text-white font-medium rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"

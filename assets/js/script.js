@@ -470,9 +470,14 @@ const save_button = document.getElementById("save");
 
 
 // form visibility 
-function show_hidde_form() {
+function show_hide_form() {
   addingForm.classList.toggle("hidden")
 }
+
+// array to push the objects in 
+const players_in_field =[] 
+
+
 
 
 
@@ -540,9 +545,6 @@ function get_player_info() {
   } 
 } 
 
-// array to push the objects in 
-const players_in_field =[] 
-
 // function to stor the informations of players in the field 
 function store_player_info() {
     
@@ -583,7 +585,6 @@ function store_player_info() {
   }
 }
 
-
 // a function to empty the form inputs 
 function empty_form() {
   searchInput.value = ""; 
@@ -602,10 +603,63 @@ function empty_form() {
     static6.value = ""; // Physicality 
 }
 
-
 // a function to validat or reject the inputs if they dont 
-function validat_inputs() {
+function validation_inputs() {
   
-} 
+  // checks if all inputs should be filled 
+  if (!playerNameElement.value.trim()
+      ||!playerPhotoElement.value.trim()
+      ||!playerNationalityElement.value.trim()
+      ||!playerClubElement.value.trim()
+      ||!positionDropdown.value.trim()
+      ||!ratingInput.value.trim()
+      ||!static1.value.trim()
+      ||!static2.value.trim()
+      ||!static3.value.trim()
+      ||!static4.value.trim()
+      ||!static5.value.trim()
+      ||!static6.value.trim() 
+    ) {
+     alert("all inputs should be filled with informations")
+   return ;
+  }  
+    
+  // checks that all numeric inputs are betwwen 0-100 and contain only numbers 
+  const numericFields = [ratingInput, static1, static2, static3, static4, static5, static6];
+  for (let field of numericFields) {
+    const numeric_value = field.value.trim();
+    if (isNaN(numeric_value) || numeric_value < 0 || numeric_value > 100) {
+      alert("Numeric fields must be between 0 and 100, and contain only numbers!");
+      return ;
+    }
+  }
+
+  // Validate player image link
+  const playerphotovalue = playerPhotoElement.value.trim();
+  if (!playerphotovalue.startsWith("https://") || 
+      (!playerphotovalue.endsWith(".png") && !playerphotovalue.endsWith(".jpg") && !playerphotovalue.endsWith(".webp"))) {
+    alert("Photo link must start with 'https://' and end with '.png', '.jpg', or '.webp'!");
+    return ;
+  }
+
+  // Validate club logo image link
+  const clubphotovalue = playerClubElement.value.trim();
+  if (!clubphotovalue.startsWith("https://") || 
+      (!clubphotovalue.endsWith(".png") && !clubphotovalue.endsWith(".jpg") && !clubphotovalue.endsWith(".webp"))) {
+    alert("club logo link must start with 'https://' and end with '.png', '.jpg', or '.webp'!");
+    return ;
+  }
+
+  // Validate flag image link
+  const flagphotovalue = playerNationalityElement.value.trim();
+  if (!flagphotovalue.startsWith("https://") || 
+      (!flagphotovalue.endsWith(".png") && !flagphotovalue.endsWith(".jpg") && !flagphotovalue.endsWith(".webp"))) {
+    alert("flag photo link must start with 'https://' and end with '.png', '.jpg', or '.webp'!");
+    return ;
+  } 
+
+
+}
+
 
 console.log(players_in_field);
