@@ -416,7 +416,6 @@ const players = [
   },
 ];
 
-// Declare all 11 player cards
 
 // Declare necessary elements for inputs and form
 const addingForm = document.getElementById("form");
@@ -444,6 +443,10 @@ const reflexes = document.getElementById("reflexes");
 const speedlabel = document.getElementById("speed");
 const positioninglabel = document.getElementById("positioning");
 
+
+
+
+
 // array to push the objects in
 const used_players = [];
 
@@ -456,8 +459,8 @@ function get_player_info() {
   const query = searchInput.value.toLowerCase(); // Get search input
   const foundPlayer = players.find((player) =>
     player.name.toLowerCase().includes(query)
-  );
-
+  );  
+       
   if (foundPlayer) {
     if (
       [
@@ -527,45 +530,83 @@ function get_player_info() {
 
 // function to stor the informations of players in the field
 function store_player_info() {
-  if (positionDropdown.value === "GK") {
-    let GK_info = {
-      name: playerNameElement.value,
-      photo: playerPhotoElement.value,
-      club: playerClubElement.value,
-      nationality: playerNationalityElement.value,
-      position: positionDropdown.value,
-      rating: ratingInput.value,
-      diving: static1.value,
-      handling: static2.value,
-      kicking: static3.value,
-      reflexes: static4.value,
-      speed: static5.value,
-      positioning: static6.value,
-      place: placeinput.value,
-    };
-    used_players.push(GK_info);
-  } else if (
-    ["CB1", "CB2", "CB3", "RM", "CM1", "CM2", "LM", "LW", "ST", "RW"].includes(
-      positionDropdown.value
-    )
-  ) {
-    let players_info = {
-      name: playerNameElement.value,
-      photo: playerPhotoElement.value,
-      club: playerClubElement.value,
-      nationality: playerNationalityElement.value,
-      position: positionDropdown.value,
-      rating: ratingInput.value,
-      pace: static1.value,
-      shooting: static2.value,
-      passing: static3.value,
-      defending: static4.value,
-      dribbling: static5.value,
-      physical: static6.value,
-      place: placeinput.value,
-    };
-    used_players.push(players_info);
+  if (edit_index === null) {
+    if (positionDropdown.value === "GK") {
+      let GK_info = {
+        name: playerNameElement.value,
+        photo: playerPhotoElement.value,
+        club: playerClubElement.value,
+        nationality: playerNationalityElement.value,
+        position: positionDropdown.value,
+        rating: ratingInput.value,
+        diving: static1.value,
+        handling: static2.value,
+        kicking: static3.value,
+        reflexes: static4.value,
+        speed: static5.value,
+        positioning: static6.value,
+        place: placeinput.value,
+      }; 
+      used_players.push(GK_info);
+    } else if (
+      ["CB1", "CB2", "CB3", "RM", "CM1", "CM2", "LM", "LW", "ST", "RW"].includes(
+        positionDropdown.value
+      )
+    ) {
+      let players_info = {
+        name: playerNameElement.value,
+        photo: playerPhotoElement.value,
+        club: playerClubElement.value,
+        nationality: playerNationalityElement.value,
+        position: positionDropdown.value,
+        rating: ratingInput.value,
+        pace: static1.value,
+        shooting: static2.value,
+        passing: static3.value,
+        defending: static4.value,
+        dribbling: static5.value,
+        physical: static6.value,
+        place: placeinput.value,
+      };
+      used_players.push(players_info);
+    }   
+  }else{
+    if (used_players[edit_index].position === "GK") { 
+
+        used_players[edit_index].name = playerNameElement.value;
+        used_players[edit_index].photo = playerPhotoElement.value;
+        used_players[edit_index].club = playerClubElement.value;
+        used_players[edit_index].nationality = playerNationalityElement.value;        used_players[edit_index].rating = ratingInput.value;  
+        used_players[edit_index].diving = static1.value;
+        used_players[edit_index].handling = static2.value;
+        used_players[edit_index].kicking = static3.value;
+        used_players[edit_index].reflexes = static4.value;
+        used_players[edit_index].speed = static5.value;
+        used_players[edit_index].positioning = static6.value;
+        used_players[edit_index].place = placeinput.value;
+
+
+    } else if (
+      ["CB1", "CB2", "CB3", "RM", "CM1", "CM2", "LM", "LW", "ST", "RW"].includes(used_players[edit_index].position)
+    ) {
+
+        used_players[edit_index].name = playerNameElement.value;
+        used_players[edit_index].photo = playerPhotoElement.value;
+        used_players[edit_index].club = playerClubElement.value;
+        used_players[edit_index].nationality = playerNationalityElement.value;
+        used_players[edit_index].position = positionDropdown.value;
+        used_players[edit_index].rating = ratingInput.value;
+        used_players[edit_index].pace = static1.value;
+        used_players[edit_index].shooting = static2.value;
+        used_players[edit_index].passing = static3.value;
+        used_players[edit_index].defending = static4.value;
+        used_players[edit_index].dribbling = static5.value;
+        used_players[edit_index].physical = static6.value;
+        used_players[edit_index].place = placeinput.value;
+
+    }      
   }
+
 }
 
 // a function to empty the form inputs
@@ -675,13 +716,18 @@ function validation_inputs() {
 }
 
 // a function to take the data from the array, creat a card and place it
-function place_cards_in_field() {
+function place_cards_in_field() { 
+  let changement_section = document.getElementById("changement_section")
+  changement_section.innerHTML = "";
   used_players.forEach((player, index) => {
-
+   
 // declare the goalkeeper card
 let goalkeeper_info = document.createElement("div");
 goalkeeper_info.innerHTML = `
-              <button class="add_button">${player.position}</button>                
+                 <div class="flex bg-none flex-row">
+                  <button class="delet_update_button" onclick="delete_player_card()">delete</button>
+                  <button class="delet_update_button" onclick="update_player_card(${index})">edit</button>
+                </div>
               <div class="top_card_side">
                   <div class="player-master-info">
                     <p>${player.rating}</p>
@@ -701,7 +747,7 @@ goalkeeper_info.innerHTML = `
                     alt="Messi"
                   />
                 </div>
-                <div class="buttom_card_side">
+                <div class="buttom_card_side mb-0">
                   <p class="player_name">${player.name}</p>
                   <div class="player-features">
                  <div class="player-features-col">
@@ -732,9 +778,10 @@ goalkeeper_info.innerHTML = `
                      <span class="player-feature-title">POS</span>
                    </span>
                  </div>
-
                   </div>
                 </div>
+              <button class="position_icon">${player.position}</button>                
+
           `;
     goalkeeper_info.classList.add("bg-none");
 
@@ -742,7 +789,10 @@ goalkeeper_info.innerHTML = `
 // declare the player card 
 let player_info = document.createElement("div");
 player_info.innerHTML = `
-              <button class="add_button">${player.position}</button>                
+                  <div class="flex bg-none flex-row">
+                    <button class="delet_update_button">delete</button>
+                  <button class="delet_update_button" onclick="update_player_card(${index})" >edit</button>
+                </div>
               <div class="top_card_side">
                   <div class="player-master-info">
                     <p>${player.rating}</p>
@@ -762,7 +812,7 @@ player_info.innerHTML = `
                     alt="Messi"
                   />
                 </div>
-                <div class="buttom_card_side">
+                <div class="buttom_card_side mb-0">
                   <p class="player_name">${player.name}</p>
                   <div class="player-features">
                 <div class="player-features-col">
@@ -795,38 +845,38 @@ player_info.innerHTML = `
                     </div>
                   </div>
                 </div>
+              <button class="position_icon">${player.position}</button>                
+
           `;
     player_info.classList.add("bg-none");
   
 
-    if (player.place === "player") {
-      if (player.position === "GK") {
+    if (player.place === "player" && player.position === "GK") {
+
         let goalkeeper = document.getElementById("GK");
         goalkeeper.innerHTML = "";
         goalkeeper.appendChild(goalkeeper_info) 
-      } else if (
-        [
-          "CB1",
-          "CB2",
-          "CB3",
-          "RM",
-          "CM1",
-          "CM2",
-          "LM",
-          "LW",
-          "ST",
-          "RW",
-        ].includes(player.position)
-      ) {
-        
-    let player_card = document.getElementById(player.position)
-    player_card.innerHTML = "";
-    player_card.appendChild(player_info)
 
-      }
-    } else if (player.place === "changement") {
-      let changement_section = document.getElementById("changement_section")
-      if (player.position === "GK") {
+    } else if ( player.place === "player" 
+      && [
+        "CB1",
+        "CB2",
+        "CB3",
+        "RM",
+        "CM1",
+        "CM2",
+        "LM",
+        "LW",
+        "ST",
+        "RW",
+      ].includes(player.position) 
+    ) {
+      
+  let player_card = document.getElementById(player.position)
+  player_card.innerHTML = "";
+  player_card.appendChild(player_info)
+
+    } else if (player.place === "changement" && player.position === "GK") {
         let goalkeeper_card = document.createElement('div')
         goalkeeper_card.innerHTML = `
               <div class="top_card_side">
@@ -888,6 +938,7 @@ player_info.innerHTML = `
             
 
       } else if (
+        player.place === "changement" &&
         [
           "CB1",
           "CB2",
@@ -962,65 +1013,146 @@ player_info.innerHTML = `
 
       }
     }
-  });
+  )};
+
+// a variable to store the index of the function being edited   
+let edit_index;
+
+function update_player_card(index) {
+edit_index = index;
+
+if (
+  [
+    "CB1",
+    "CB2",
+    "CB3",
+    "RM",
+    "CM1",
+    "CM2",
+    "LM",
+    "LW",
+    "ST",
+    "RW",
+  ].includes(used_players[index].position)
+) {
+  //  placing player info to the inputs
+  playerNameElement.value = used_players[index].name; // Display name
+  playerPhotoElement.value = used_players[index].photo; // Player photo
+  playerNationalityElement.value = used_players[index].nationality; // Nationality
+  playerClubElement.value = used_players[index].club; // Club
+  positionDropdown.value = used_players[index].position; // Set position
+  ratingInput.value = used_players[index].rating; // Player rating
+
+  // change text content for those labels
+  divinglabel.textContent = "pace";
+  handlinglabe.textContent = "shooting";
+  kicking.textContent = "passing";
+  reflexes.textContent = "defending";
+  speedlabel.textContent = "dribbling";
+  positioninglabel.textContent = "Physicality";
+
+  static1.value = used_players[index].pace; // Pace
+  static2.value = used_players[index].shooting; // Shooting
+  static3.value = used_players[index].passing; // Passing
+  static4.value = used_players[index].defending; // Defending
+  static5.value = used_players[index].dribbling; // Dribbling
+  static6.value = used_players[index].physical; // Physicality
+  placeinput.value = used_players[index].place;
+} else if (used_players[index].position) {
+  // change text content for those labels
+  divinglabel.textContent = "diving";
+  handlinglabe.textContent = "handling";
+  kicking.textContent = "kicking";
+  reflexes.textContent = "reflexes";
+  speedlabel.textContent = "speed";
+  positioninglabel.textContent = "positioning";
+  
+  //  placing player info to the inputs
+  playerNameElement.value = used_players[index].name; // Display name
+  playerPhotoElement.value = used_players[index].photo; // Player photo
+  playerNationalityElement.value = used_players[index].nationality; // Nationality
+  playerClubElement.value = used_players[index].club; // Club
+  positionDropdown.value = used_players[index].position; // Set position
+  ratingInput.value = used_players[index].rating; // Player rating
+  
+  
+  
+  static1.value = used_players[index].diving; // diving
+  static2.value = used_players[index].handling; // handling
+  static3.value = used_players[index].kicking; // kicking
+  static4.value = used_players[index].reflexes; // reflexes
+  static5.value = used_players[index].speed; // speed
+  static6.value = used_players[index].positioning; // positioning
+  placeinput.value = used_players[index].place;
+  
 }
+save_button.textContent = "save";
+
+}  
+
+
+function delete_player_card() {
+    
+}
+
+
 
 // let test = document.getElementById("goalkeeper-card");
 
 // let card_info = document.createElement("div");
 
-// <div class="top_card_side">
-//                   <div class="player-master-info">
-//                     <p>97</p>
-//                     <p>RW</p>
-//                     <img
-//                       src="https://selimdoyranli.com/cdn/fut-player-card/img/argentina.svg"
-//                       alt="Argentina"
-//                     />
-//                     <img
-//                       src="https://selimdoyranli.com/cdn/fut-player-card/img/barcelona.svg"
-//                       alt="Barcelona"
-//                     />
-//                   </div>
-//                   <img
-//                     class="player-picture"
-//                     src="https://selimdoyranli.com/cdn/fut-player-card/img/messi.png"
-//                     alt="Messi"
-//                   />
-//                 </div>
-//                 <div class="buttom_card_side">
-//                   <p class="player_name">Messi</p>
-//                   <div class="player-features">
-//                     <div class="player-features-col">
-//                       <span>
-//                         <span class="player-feature-value">97</span>
-//                         <span class="player-feature-title">PAC</span>
-//                       </span>
-//                       <span>
-//                         <span class="player-feature-value">95</span>
-//                         <span class="player-feature-title">SHO</span>
-//                       </span>
-//                       <span>
-//                         <span class="player-feature-value">94</span>
-//                         <span class="player-feature-title">PAS</span>
-//                       </span>
-//                     </div>
-//                     <div class="player-features-col">
-//                       <span>
-//                         <span class="player-feature-value">99</span>
-//                         <span class="player-feature-title">DRI</span>
-//                       </span>
-//                       <span>
-//                         <span class="player-feature-value">35</span>
-//                         <span class="player-feature-title">DEF</span>
-//                       </span>
-//                       <span>
-//                         <span class="player-feature-value">68</span>
-//                         <span class="player-feature-title">PHY</span>
-//                       </span>
-//                     </div>
-//                   </div>
-//                 </div>
+{/* <div class="top_card_side">
+                  <div class="player-master-info">
+                    <p>97</p>
+                    <p>RW</p>
+                    <img
+                      src="https://selimdoyranli.com/cdn/fut-player-card/img/argentina.svg"
+                      alt="Argentina"
+                    />
+                    <img
+                      src="https://selimdoyranli.com/cdn/fut-player-card/img/barcelona.svg"
+                      alt="Barcelona"
+                    />
+                  </div>
+                  <img
+                    class="player-picture"
+                    src="https://selimdoyranli.com/cdn/fut-player-card/img/messi.png"
+                    alt="Messi"
+                  />
+                </div>
+                <div class="buttom_card_side">
+                  <p class="player_name">Messi</p>
+                  <div class="player-features">
+                    <div class="player-features-col">
+                      <span>
+                        <span class="player-feature-value">97</span>
+                        <span class="player-feature-title">PAC</span>
+                      </span>
+                      <span>
+                        <span class="player-feature-value">95</span>
+                        <span class="player-feature-title">SHO</span>
+                      </span>
+                      <span>
+                        <span class="player-feature-value">94</span>
+                        <span class="player-feature-title">PAS</span>
+                      </span>
+                    </div>
+                    <div class="player-features-col">
+                      <span>
+                        <span class="player-feature-value">99</span>
+                        <span class="player-feature-title">DRI</span>
+                      </span>
+                      <span>
+                        <span class="player-feature-value">35</span>
+                        <span class="player-feature-title">DEF</span>
+                      </span>
+                      <span>
+                        <span class="player-feature-value">68</span>
+                        <span class="player-feature-title">PHY</span>
+                      </span>
+                    </div>
+                  </div>
+                </div> */}
 
 //   test.appendChild(card_info);
 

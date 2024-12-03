@@ -37,7 +37,7 @@
    width: 527px;
    height: 800px;
    background-size: cover;
-
+   
    opacity: 100%;
    display: grid;
    grid-template-columns: 10px auto 10px ;
@@ -76,6 +76,7 @@
     justify-content: center;
     align-items: center;
     justify-content: space-around;
+    margin-bottom: 50px;
 }
 .center{
     grid-area: center;
@@ -86,6 +87,7 @@
     flex-direction: row;
     align-items: center; 
     gap: 50px;
+    margin-bottom: 50px;
 }
 .attack{
     grid-area: attack;
@@ -145,8 +147,9 @@
     margin-bottom: 50px;
  
  }
- .add_button{
-    width: 60%;
+ 
+ .delet_update_button{
+    width: 50%;
     height: 30px;
     background-color: rgb(1, 114, 1);
     border-color: rgb(0, 0, 0);
@@ -154,6 +157,17 @@
     border-radius: 25px;
     place-self: center;
     margin-top: auto;
+ }
+
+ .position_icon{
+    width: 65%;
+    height: 30px;
+    background-color: rgb(1, 114, 1);
+    border-color: rgb(0, 0, 0);
+    border-width: 2px;
+    border-radius: 25px;
+    place-self: center;
+    margin-top: auto;   
  }
 
 
