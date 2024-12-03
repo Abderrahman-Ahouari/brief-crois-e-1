@@ -8,339 +8,269 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
-    <!-- form d'ajout de player -->
-    <div id="form" class="hidden absolute z-10 inset-x-16 inset-y-16 w-full  max-w-md mx-auto">
-      <div class="bg-white shadow-lg rounded-lg p-6 w-full max-w-2xl">
-        <h1 class="text-2xl font-bold mb-4">Player Details Form</h1>
-    
-        <!-- Search Field -->
-        <div class="mb-4 flex flex-row">
-          <label for="search" class="block text-sm font-medium text-gray-700 mb-1">Search Player</label>
-          <input
-            type="text"
-            id="search"
-            name="search"
-            placeholder="Search for a player by name"
-            class="block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
-          />
-          <button class="bg-blue-600 w-24 rounded-lg " onclick="get_player_info()">search</button>
-        </div>
-    
-        <!-- Static Information -->
-<div class="mb-6">
-  <h2 class="text-lg font-semibold mb-2">Player Informations</h2>
-  
-  <!-- Name Input -->
-  <div class="mb-4">
-    <label for="player-name" class="block text-gray-800 font-medium mb-1">Name:</label>
-    <input type="text" id="player_name" class="w-full border-gray-300 rounded-md p-2 text-gray-800" placeholder="Enter player's name">
-  </div>
-
-  <!-- Photo Input -->
-  <div class="mb-4">
-    <label for="player-photo" class="block text-gray-800 font-medium mb-1">Photo:</label>
-    <input type="text" id="player_photo" class="w-full border-gray-300 rounded-md p-2 text-gray-800" placeholder="Enter player's photo URL">
-  </div>
-
-  <!-- Nationality Input -->
-  <div class="mb-4">
-    <label for="player-nationality" class="block text-gray-800 font-medium mb-1">flag_photo:</label>
-    <input type="text" id="player_nationality" class="w-full border-gray-300 rounded-md p-2 text-gray-800" placeholder="Enter player's nationality">
-  </div>
-
-  <!-- Club Input -->
-  <div class="mb-4">
-    <label for="player-club" class="block text-gray-800 font-medium mb-1">Club_logo:</label>
-    <input type="text" id="player_club" class="w-full border-gray-300 rounded-md p-2 text-gray-800" placeholder="Enter player's club">
-  </div>
-</div>
-
-    
-        <!-- Player Inputs -->
-        <div class="mb-6">
-          <h2 class="text-lg font-semibold mb-2">Player Attributes</h2>
-          <div class="grid grid-cols-2 gap-4">
-            <!-- Rating -->
-            <div>
-              <label for="rating" class="block text-sm font-medium text-gray-700">Rating</label>
-              <input
-                type="text"
-                id="rating"
-                name="rating"
-                min="0"
-                max="100"
-                placeholder="Enter rating (0-100)"
-                class="block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
-              />
-            </div>
-    
-            <!-- Position -->
-            <div>
-              <label for="position" class="block text-sm font-medium text-gray-700">Position</label>
-              <select
-                id="position"
-                name="position"
-                class="block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
-              >
-                <option value="" disabled selected>Select position</option>
-                <option value="GK">GK</option>
-                <option value="CB1">CB1</option>
-                <option value="CB2">CB2</option>
-                <option value="CB3">CB3</option>
-                <option value="RM">RM</option>
-                <option value="CM1">CM1</option>
-                <option value="CM2">CM2</option>
-                <option value="LM">LM</option>
-                <option value="RW">RW</option>
-                <option value="ST">ST</option>
-                <option value="LW">LW</option>
-              </select>
-            </div>
-            
-    
-            <!-- Pace -->
-            <div>
-              <label id="diving" for="pace" class="block text-sm font-medium text-gray-700">Pace</label>
-              <input
-                type="text"
-                id="pace"
-                name="pace"
-                min="0"
-                max="100"
-                class="block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
-              />
-            </div>
-    
-            <!-- Shooting -->
-            <div>
-              <label id="handling" for="shooting" class="block text-sm font-medium text-gray-700">Shooting</label>
-              <input
-                type="text"
-                id="shooting"
-                name="shooting"
-                min="0"
-                max="100"
-                class="block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
-              />
-            </div>
-    
-            <!-- Passing -->
-            <div>
-              <label id="kicking" for="passing" class="block text-sm font-medium text-gray-700">Passing</label>
-              <input
-                type="text"
-                id="passing"
-                name="passing"
-                min="0"
-                max="100"
-                class="block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
-              />
-            </div>
-    
-            <!-- Defending -->
-            <div>
-              <label id="reflexes" for="defending" class="block text-sm font-medium text-gray-700">Defending</label>
-              <input
-                type="text"
-                id="defending"
-                name="defending"
-                min="0"
-                max="100"
-                class="block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
-              />
-            </div>
-    
-            <!-- Dribbling -->
-            <div>
-              <label id="speed" for="dribbling" class="block text-sm font-medium text-gray-700">Dribbling</label>
-              <input
-                type="text"
-                id="dribbling"
-                name="dribbling"
-                min="0"
-                max="100"
-                class="block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
-              />
-            </div>
-    
-            <!-- Physicality -->
-            <div>
-              <label id="positioning" for="physicality" class="block text-sm font-medium text-gray-700">Physicality</label>
-              <input
-                type="text"
-                id="physicality"
-                name="physicality"
-                min="0"
-                max="100"
-                class="block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
-              />
-            </div>
-          </div>
-        </div>
-    
-        <!-- Save Button -->
-        <div class="text-right">
-          <button
-          onclick="validation_inputs()" 
-          id="save"
-            type="submit"
-            class="px-4 py-2 bg-blue-600 text-white font-medium rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
-            Save
-          </button>
-        </div>
-      </div>
-  </div>
-      <!-- form d'ajout de player -->
-
-    <section class="main_container">
-     
-      <div class="players_positions">
-        <!-- Goalkeeper -->
-        <div class="goal_keeper">
-          <div class="player_card" id="goalkeeper-card" data-position="GK" onclick="show_hidde_form()">
-            <button>
-              <p id="gk" class="text-3xl font-bold">GK</p>
-            </button>
-          </div>
-        </div>
-    
-        <!-- Defense -->
-        <div class="defence">
-          <div class="player_card" id="cb1-card" data-position="CB">
-            <button>
-              <p id="cb1" class="text-3xl font-bold">CB1</p>
-            </button>
-          </div>
-    
-          <div class="player_card" id="cb2-card" data-position="CB">
-            <button>
-              <p id="cb2" class="text-3xl font-bold">CB2</p>
-            </button>
-          </div>
-    
-          <div class="player_card" id="cb3-card" data-position="CB">
-            <button>
-              <p id="cb3" class="text-3xl font-bold">CB3</p>
-            </button>
-          </div>
-        </div>
-    
-        <!-- Midfield -->
-        <div class="sdm">
-          <div class="player_card" id="rm-card" data-position="RM">
-            <button>
-              <p id="rm" class="text-3xl font-bold">RM</p>
-            </button>
-          </div>
-    
-          <div class="player_card_sdm" id="cm1-card" data-position="CM">
-            <button>
-              <p id="cm1" class="text-3xl font-bold">CM1</p>
-            </button>
-          </div>
-    
-          <div class="player_card_sdm" id="cm2-card" data-position="CM">
-            <button>
-              <p id="cm2" class="text-3xl font-bold">CM2</p>
-            </button>
-          </div>
-    
-          <div class="player_card" id="lm-card" data-position="LM">
-            <button>
-              <p id="lm" class="text-3xl font-bold">LM</p>
-            </button>
-          </div>
-        </div>
-    
-        <!-- Attack -->
-        <div class="attack">
-          <div class="player_card_attack" id="rw-card" data-position="RW">
-            <button>
-              <p id="rw" class="text-3xl font-bold">RW</p>
-            </button>
-          </div>
-    
-          <div class="player_card_attack_st" id="st-card" data-position="ST">
-            <button>
-              <p id="st" class="text-3xl font-bold">ST</p>
-            </button>
-          </div>
-    
-          <div class="player_card_attack" id="lw-card" data-position="LW">
-            <button>
-              <p id="lw" class="text-3xl font-bold">LW</p>
-            </button>
-          </div>
-        </div>
-      </div>
-      
-    </section>
-
-
-  <!-- player informations to be add in the card -->
-      <div class="top_card_side mt-8">
-        <div class="player-master-info">
-          <p>97</p>
-          <p>RW</p>
-          <img
-            src="https://selimdoyranli.com/cdn/fut-player-card/img/argentina.svg"
-            alt="Argentina"
-          />
-          <img
-            src="https://selimdoyranli.com/cdn/fut-player-card/img/barcelona.svg"
-            alt="Barcelona"
-          />
-        </div>
-        <img
-          class="player-picture"
-          src="https://selimdoyranli.com/cdn/fut-player-card/img/messi.png"
-          alt="Messi"
-        />
-      </div>
-      <div class="buttom_card_side mt-2">
-        <p class="player_name">Messi</p>
-        <div class="player-features">
-          <div class="player-features-col">
-            <span
-              ><span class="player-feature-value">97</span
-              ><span class="player-feature-title">PAC</span></span
-            >
-            <span
-              ><span class="player-feature-value">95</span
-              ><span class="player-feature-title">SHO</span></span
-            >
-            <span
-              ><span class="player-feature-value">94</span
-              ><span class="player-feature-title">PAS</span></span
-            >
-          </div>
-          <div class="player-features-col">
-            <span
-              ><span class="player-feature-value">99</span
-              ><span class="player-feature-title">DRI</span></span
-            >
-            <span
-              ><span class="player-feature-value">35</span
-              ><span class="player-feature-title">DEF</span></span
-            >
-            <span
-              ><span class="player-feature-value">68</span
-              ><span class="player-feature-title">PHY</span></span
-            >
-          </div>
-        </div>
-      </div>
-
-   <!-- end of player informations to be add in the card -->
-
+    <div class="main_container">
+     <div class="bg-none">
+       <div class="soccer_field">
+         <!-- Goalkeeper -->
+         <div class="goalkeeper">
+             <div class="player_card" id="GK" data-position="GK">
+                 <button class="add_button">GK</button>
+                  
+             </div>
+         </div>
    
+         <!-- Defence -->
+         <div class="defence">
+             <div class="player_card" id="CB1" data-position="CB">
+                 <button class="add_button">CB1</button>                
+             </div>
+             <div class="player_card" id="CB2" data-position="CB">
+                 <button class="add_button">CB2</button>                
+             </div>
+             <div class="player_card" id="CB3" data-position="CB">
+                 <button class="add_button">CB3</button>                
+             </div>
+         </div>
+   
+         <!-- Center -->
+         <div class="center">
+             <div class="player_card" id="RM" data-position="RM">
+                 <button class="add_button">RM</button>                
+             </div>
+             <div class="player_card_sdm" id="CM1" data-position="CM">
+                 <button class="add_button">CM1</button>                
+             </div>
+             <div class="player_card_sdm" id="CM2" data-position="CM">
+                 <button class="add_button">CM2</button>                
+             </div>
+             <div class="player_card" id="LM" data-position="LM">
+                 <button class="add_button">LM</button>                
+             </div>
+         </div>
+   
+         <!-- Attack -->
+         <div class="attack">
+             <div class="player_card" id="RW" data-position="RW">
+                 <button class="add_button">RW</button>                
+             </div>
+             <div class="player_card_attack_st" id="ST" data-position="ST">
+                 <button class="add_button">ST</button>                
+             </div>
+             <div class="player_card" id="LW" data-position="LW">
+                 <button class="add_button">LW</button>                
+             </div>
+         </div>
+     </div>
+     </div>
+   <div class="bg-none ">
+     <div id="form" class="bg-none	w-12/12 inset-x-16 inset-y-16  max-w-md mx-auto">
+       <div class="bg-none	bg-white shadow-lg rounded-lg p-6 w-full max-w-2xl">
+         <h1 class="bg-none	text-2xl font-bold mb-4">Player Details Form</h1>
+     
+         <!-- Search Field -->
+         <div class="bg-none	mb-4 flex flex-row">
+           <label for="search" class="bg-none	block text-sm font-medium text-gray-700 mb-1">Search Player</label>
+           <input
+             type="text"
+             id="search"
+             name="search"
+             placeholder="Search for a player by name"
+             class="bg-none	block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+           />
+           <button class="bg-none	bg-blue-600 w-24 rounded-lg " onclick="get_player_info() ">search</button>
+         </div>
+     
+         <!-- Static Information -->
+ <div class="bg-none	mb-6">
+   <h2 class="bg-none	text-lg font-semibold mb-2">Player Informations</h2>
+   
+   <!-- Name Input -->
+   <div class="bg-none	mb-4">
+     <label for="player-name" class="bg-none	block text-gray-800 font-medium mb-1">Name:</label>
+     <input type="text" id="player_name" class="bg-none	w-full border-gray-300 rounded-md p-2 text-gray-800" placeholder="Enter player's name">
+   </div>
+ 
+   <!-- Photo Input -->
+   <div class="bg-none	mb-4">
+     <label for="player-photo" class="bg-none	block text-gray-800 font-medium mb-1">Photo:</label>
+     <input type="text" id="player_photo" class="bg-none	w-full border-gray-300 rounded-md p-2 text-gray-800" placeholder="Enter player's photo URL">
+   </div>
+ 
+   <!-- Nationality Input -->
+   <div class="bg-none	mb-4">
+     <label for="player-nationality" class="bg-none	block text-gray-800 font-medium mb-1">flag_photo:</label>
+     <input type="text" id="player_nationality" class="bg-none	w-full border-gray-300 rounded-md p-2 text-gray-800" placeholder="Enter player's nationality">
+   </div>
+ 
+   <!-- Club Input -->
+   <div class="bg-none	mb-4">
+     <label for="player-club" class="bg-none	block text-gray-800 font-medium mb-1">Club_logo:</label>
+     <input type="text" id="player_club" class="bg-none	w-full border-gray-300 rounded-md p-2 text-gray-800" placeholder="Enter player's club">
+   </div>
+ </div>
+ 
+     
+         <!-- Player Inputs -->
+         <div class="bg-none	mb-6">
+           <h2 class="bg-none	text-lg font-semibold mb-2">Player Attributes</h2>
+           <div class="bg-none	grid grid-cols-2 gap-4">
+             <!-- Rating -->
+             <div class="bg-none">
+               <label for="rating" class="bg-none block text-sm font-medium text-gray-700">Rating</label>
+               <input
+                 type="text"
+                 id="rating"
+                 name="rating"
+                 min="0"
+                 max="100"
+                 placeholder="Enter rating (0-100)"
+                 class="bg-none	block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+               />
+             </div>
+     
+             <!-- Position -->
+             <div class="bg-none	">
+               <label for="position" class="bg-none	block text-sm font-medium text-gray-700">Position</label>
+               <select
+                 id="position"
+                 name="position"
+                 class="bg-none	block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+               >
+                 <option value="" disabled selected>Select position</option>
+                 <option value="GK">GK</option>
+                 <option value="CB1">CB1</option>
+                 <option value="CB2">CB2</option>
+                 <option value="CB3">CB3</option>
+                 <option value="RM">RM</option>
+                 <option value="CM1">CM1</option>
+                 <option value="CM2">CM2</option>
+                 <option value="LM">LM</option>
+                 <option value="RW">RW</option>
+                 <option value="ST">ST</option>
+                 <option value="LW">LW</option>
+                </select>
+             </div>
+             
+     
+             <!-- Pace -->
+             <div class="bg-none	">
+               <label id="diving" for="pace" class="bg-none	block text-sm font-medium text-gray-700">Pace</label>
+               <input
+                 type="text"
+                 id="pace"
+                 name="pace"
+                 min="0"
+                 max="100"
+                 class="bg-none	block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+               />
+             </div>
+     
+             <!-- Shooting -->
+             <div class="bg-none	">
+               <label id="handling" for="shooting" class="bg-none	bg-none	block text-sm font-medium text-gray-700">Shooting</label>
+               <input
+                 type="text"
+                 id="shooting"
+                 name="shooting"
+                 min="0"
+                 max="100"
+                 class="bg-none	bg-none	block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+               />
+             </div>
+     
+             <!-- Passing -->
+             <div class="bg-none	">
+               <label id="kicking" for="passing" class="bg-none	bg-none	block text-sm font-medium text-gray-700">Passing</label>
+               <input
+                 type="text"
+                 id="passing"
+                 name="passing"
+                 min="0"
+                 max="100"
+                 class="bg-none	bg-none	block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+               />
+             </div>
+     
+             <!-- Defending -->
+             <div class="bg-none	">
+               <label id="reflexes" for="defending" class="bg-none	bg-none	block text-sm font-medium text-gray-700">Defending</label>
+               <input
+                 type="text"
+                 id="defending"
+                 name="defending"
+                 min="0"
+                 max="100"
+                 class="bg-none	block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+               />
+             </div>
+     
+             <!-- Dribbling -->
+             <div class="bg-none	">
+               <label id="speed" for="dribbling" class="bg-none block text-sm font-medium text-gray-700">Dribbling</label>
+               <input
+                 type="text"
+                 id="dribbling"
+                 name="dribbling"
+                 min="0"
+                 max="100"
+                 class="bg-none	block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+               />
+             </div>
+     
+             <!-- Physicality -->
+             <div class="bg-none	">
+               <label id="positioning" for="physicality" class="bg-none	block text-sm font-medium text-gray-700">Physicality</label>
+               <input
+                 type="text"
+                 id="physicality"
+                 name="physicality"
+                 min="0"
+                 max="100"
+                 class="bg-none	block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+               />
+             </div>
+           </div>
+         </div>
 
 
+         <div class="bg-none self-center">
+          <label for="chanhgement" class="bg-none	block text-sm font-medium text-gray-700">placing</label>
+          <select
+            id="placing"
+            name="placing"
+            class="bg-none	block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+          >
+            <option value="" disabled selected>Select placing</option>
+            <option value="player">player</option>
+            <option value="changement">changement</option>
+           </select>                                   
+        </div>
+     
+         <!-- Save Button -->
+         <div class="bg-none	mt-4 text-right">
+           <button
+           onclick="validation_inputs(), store_player_info(), place_cards_in_field(), place_cards_in_field()" 
+           id="save"
+             type="submit"
+             class="bg-none	px-4 py-2 bg-blue-600 text-white font-medium rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+           >
+             Save
+           </button>
+         </div>
+       </div>
+   </div>
+   </div>
+    </div>
+    <div class="changement_container" id="changement_section">
+       
     
 
-    
+    </div> 
 
-    <script src="assets/js/script.js"></script>
-  </body>
+    
+ <script src="assets/js/script.js"></script>
+ </body>
+
+
+
 </html>

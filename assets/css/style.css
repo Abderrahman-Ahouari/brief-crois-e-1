@@ -1,97 +1,108 @@
 *{
-    box-sizing: border-box;
+    background-image: url(../images/Design\ sans\ titre\ \(2\).png);
     margin: 0;
-    bottom: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
 }
-
-
 .main_container{
-    background-image: url(../images/soccer_bg.jpg);
-    display: flex;
-    justify-content: center;
-    justify-items: center; 
     width: 100%;
-    height: 1200px;
-    background-repeat: no-repeat  ;
-    background-size: cover;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 50px;
+    
+}
 
+.changement_container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjust columns dynamically */
+    grid-auto-rows: 200px; /* Fixed height for each row */
+    gap: 20px; /* Spacing between rows and columns */
+    width: 80%; /* Set a specific width for the container */
+    margin: 0 auto; /* Center the container */
+    background-color: #f0f0f0; /* Optional styling for visibility */
+    padding: 10px;
+    margin-top: 80px;
 }
 
 
+.soccer_field{
+    background-image: url(https://chosen11.com/assets/images/playground-images/field_grass_striped.svg);
+    background-repeat: no-repeat;
+   width: 527px;
+   height: 800px;
+   background-size: cover;
 
-.players_positions{
-    background-image: url(../images/soccer_field_possition.png);
-    position: relative;
-    z-index: 1;
-    background-repeat: no-repeat; 
-    width: 80%;
-    height: 700px;
-    background-size: cover;
-margin-top: 130px;
-bottom: 140px;   
-left: 50px; 
-margin-right: 120px; 
-display: grid;
-grid-template-columns: 65px 1fr 1fr 1fr 1fr 65px;
-grid-template-rows: 65px 1fr 15px ;
-grid-template-areas: 
-". . . . . ."
-". attack SDM defence GK ."
-". . . . . ."
-; 
+   opacity: 100%;
+   display: grid;
+   grid-template-columns: 10px auto 10px ;
+   grid-template-rows: 23px 1fr 2fr 2fr 2fr 1fr 23px ;
+   grid-template-areas: 
+   ". . ."
+   ". . ."
+   ". attack ."
+   ". center ."
+   ". defence ."
+   ". goalkeeper ."
+
+   ;
 }
 
-.goal_keeper {
-    color: red;
-    grid-area: GK;
+.hh{
+    background-image: none;
+    background-color: red;
+    width: 80px;
+    height: 120px;
+}
+
+.goalkeeper{
+    grid-area: goalkeeper;
+    background-image: none;
     display:flex;
     justify-content: center;
     align-items: center;
-    margin-left: 120px;
-        }
 
-
-.defence {
-    color: red;
+}
+.defence{
     grid-area: defence;
+    background-image: none;
     display:flex;  
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-justify-content: space-around;
-margin-left: 120px;
+    justify-content: space-around;
 }
-
-.sdm {
-    color: red;
-    grid-area: SDM;
-        display:flex; 
-        justify-content: center;
-        flex-direction: column;
-    gap: 10px ;
-   align-items: center; 
-   margin-left: 100px;
-   
+.center{
+    grid-area: center;
+    background-image: none;
+    justify-content: center;
+    display:flex; 
+    justify-content: center;
+    flex-direction: row;
+    align-items: center; 
+    gap: 50px;
 }
-
-.attack {
-    color: red;
+.attack{
     grid-area: attack;
-        display:flex; 
-        justify-content: center;
+    background-image: none;
     align-items: center;
-        flex-direction: column; 
-        gap: 50px;
-        margin-left: 100px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-around;
 }
 
 
-
-/* styling the player card */
 
 .player_card {
-    width: 100px ;
-    height: 147px ;
+    width: 75px ;
+    height: 110px ;
     background-image: url(https://www.futbin.com/design2/img/static/evolutions/placeholder-card-normal.webp);
     background-size: cover;
     text-align: center;
@@ -100,108 +111,131 @@ margin-left: 120px;
     justify-content: center;
 }
 .player_card_sdm{
-    width: 100px ;
-    height: 147px ;
+    width: 75px ;
+    height: 110px ;
     background-image: url(https://www.futbin.com/design2/img/static/evolutions/placeholder-card-normal.webp);
     background-size: cover;
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
-     margin-left: 70px;
+   margin-top: 70px;
+
  }
  .player_card_attack{
-     width: 100px ;
-     width: 100px ;
-     height: 147px ;
+    width: 75px ;
+    height: 110px ;
      background-image: url(https://www.futbin.com/design2/img/static/evolutions/placeholder-card-normal.webp);
      background-size: cover;
      text-align: center;
      display: flex;
      flex-direction: column;
      justify-content: center;
-     margin-left: 90px;   
+ 
  }
  .player_card_attack_st{
-    width: 100px ;
-    height: 147px ;
+    width: 75px ;
+    height: 110px ;
     background-image: url(https://www.futbin.com/design2/img/static/evolutions/placeholder-card-normal.webp);
     background-size: cover;
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
-     margin-right: px;   
+    margin-bottom: 50px;
+ 
+ }
+ .add_button{
+    width: 60%;
+    height: 30px;
+    background-color: rgb(1, 114, 1);
+    border-color: rgb(0, 0, 0);
+    border-width: 2px;
+    border-radius: 25px;
+    place-self: center;
+    margin-top: auto;
  }
 
 
-
-
-
-
-
-
-
-
+ 
 .top_card_side {
+        background-image: none;
+    display: flex;
+    flex-direction: row;  
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+  }
+  
+  .player-master-info{
+ background-image: none;
   display: flex;
-  flex-direction: row;  
+  flex-direction: column;
+  gap: 2px;
+  align-items: center;
   justify-content: center;
-  gap: 5px;
-}
+  }
+  .player-master-info p{
+        background-image: none;
+        font-size: 6px;
 
-.player-master-info{
-display: flex;
-flex-direction: column;
-gap: 5px;
-align-items: center;
-justify-content: center;
-}
-.player-master-info p{
-    width: 12px;
-    height: 10px;
-    font-size: 10px;
-    color: #e9cc74;
-}
-.player-master-info img{
-    width: 12px;
-    height: auto;
-}
-.player-picture{
-    width: 60px;
-    height: auto;
-    margin-bottom: 4px;
-}
 
-.buttom_card_side{
-display: flex;
-flex-direction: column;
-align-items: center;
-}
-.player_name{
-    color: #e9cc74;
-    font-size: 10px;
+      color: #e9cc74;
+  }
+  .player-master-info img{
+        background-image: none;
+      width: 10px;
+      height: auto;
+  }
+  .player-picture{
+        background-image: none;
+      width: 65%;
+      height: 90%;
+      place-self: center;
+      margin-bottom:px;
 
-}
-.player-features{
-    display: flex;
-    flex-direction: row;
-    gap: 15px;
-}
-.player-features-col span{
-    display: flex;
-    flex-direction: row;
-    gap: 4px;
-}
-.player-feature-title{
-    color: #e9cc74;
-    font-size: 7px;
-}
-.player-feature-value{
-    color: #e9cc74;
-font-weight: bold;
-font-size: 7px;
+  }
+  
+  .buttom_card_side{
+        background-image: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 29px;
+  }
+  .player_name{
+        background-image: none;
+      color: #e9cc74;
+      font-size: 10px;
+  
+  }
+  .player-features{
+        background-image: none;
+      display: flex;
+      flex-direction: row;
+      gap: 7px;
+  }
 
-}
+.player-features-col{
+    background-image: none;
+  }
 
-/* styling the player card */
+  .player-features-col span{
+        background-image: none;
+      display: flex;
+      flex-direction: row;
+      gap: 4px;
+  }
+
+  .player-feature-title{
+        background-image: none;
+      color: #e9cc74;
+      font-size: 7px;
+  }
+  .player-feature-value{
+        background-image: none;
+      color: #e9cc74;
+  font-weight: bold;
+  font-size: 7px;
+  
+  }
