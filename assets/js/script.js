@@ -528,6 +528,7 @@ function get_player_info() {
   }
 }
 
+
 // function to stor the informations of players in the field
 function store_player_info() {
      if  (edit_index === null) { 
@@ -576,7 +577,8 @@ function store_player_info() {
         used_players[edit_index].name = playerNameElement.value;
         used_players[edit_index].photo = playerPhotoElement.value;
         used_players[edit_index].club = playerClubElement.value;
-        used_players[edit_index].nationality = playerNationalityElement.value;        used_players[edit_index].rating = ratingInput.value;  
+        used_players[edit_index].nationality = playerNationalityElement.value;        
+        used_players[edit_index].rating = ratingInput.value;  
         used_players[edit_index].diving = static1.value;
         used_players[edit_index].handling = static2.value;
         used_players[edit_index].kicking = static3.value;
@@ -627,6 +629,7 @@ function empty_form() {
   static5.value = ""; // Dribbling
   static6.value = ""; // Physicality
 }
+
 
 // a function to validat or reject the inputs if they dont
 function validation_inputs() {
@@ -716,6 +719,7 @@ function validation_inputs() {
   store_player_info();
   empty_form();
 }
+ 
 
 // a function to take the data from the array, creat a card and place it
 function place_cards_in_field() { 
@@ -1017,6 +1021,7 @@ player_info.innerHTML = `
     }
   )};
 
+
 // a variable to store the index of the function being edited   
 let edit_index = null;
 
@@ -1077,8 +1082,7 @@ if (
   positionDropdown.value = used_players[index].position; // Set position
   ratingInput.value = used_players[index].rating; // Player rating
   
-  
-  
+    
   static1.value = used_players[index].diving; // diving
   static2.value = used_players[index].handling; // handling
   static3.value = used_players[index].kicking; // kicking
@@ -1094,69 +1098,17 @@ save_button.textContent = "save";
 
 
 function delete_player_card(index) {
-    used_players.splice(index,1);
-    place_cards_in_field();
-  }
+  let button_position = document.createElement("button")
+  button_position.innerHTML= `${used_players[index].position}`
+button_position.classList.add("position_icon")
+  let card_to_delete = document.getElementById(used_players[index].position)  
+  card_to_delete.innerHTML = ""; 
+  card_to_delete.appendChild(button_position)
+  
+      used_players.splice(index,1);
+      place_cards_in_field();
+    }
 
 
-
-// let test = document.getElementById("goalkeeper-card");
-
-// let card_info = document.createElement("div");
-
-{/* <div class="top_card_side">
-                  <div class="player-master-info">
-                    <p>97</p>
-                    <p>RW</p>
-                    <img
-                      src="https://selimdoyranli.com/cdn/fut-player-card/img/argentina.svg"
-                      alt="Argentina"
-                    />
-                    <img
-                      src="https://selimdoyranli.com/cdn/fut-player-card/img/barcelona.svg"
-                      alt="Barcelona"
-                    />
-                  </div>
-                  <img
-                    class="player-picture"
-                    src="https://selimdoyranli.com/cdn/fut-player-card/img/messi.png"
-                    alt="Messi"
-                  />
-                </div>
-                <div class="buttom_card_side">
-                  <p class="player_name">Messi</p>
-                  <div class="player-features">
-                    <div class="player-features-col">
-                      <span>
-                        <span class="player-feature-value">97</span>
-                        <span class="player-feature-title">PAC</span>
-                      </span>
-                      <span>
-                        <span class="player-feature-value">95</span>
-                        <span class="player-feature-title">SHO</span>
-                      </span>
-                      <span>
-                        <span class="player-feature-value">94</span>
-                        <span class="player-feature-title">PAS</span>
-                      </span>
-                    </div>
-                    <div class="player-features-col">
-                      <span>
-                        <span class="player-feature-value">99</span>
-                        <span class="player-feature-title">DRI</span>
-                      </span>
-                      <span>
-                        <span class="player-feature-value">35</span>
-                        <span class="player-feature-title">DEF</span>
-                      </span>
-                      <span>
-                        <span class="player-feature-value">68</span>
-                        <span class="player-feature-title">PHY</span>
-                      </span>
-                    </div>
-                  </div>
-                </div> */}
-
-//   test.appendChild(card_info);
-
+    
 console.log(used_players);
