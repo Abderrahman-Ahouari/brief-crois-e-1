@@ -530,10 +530,6 @@ function get_player_info() {
 
 // function to stor the informations of players in the field
 function store_player_info() {
-     if (!validation_inputs) {
-   alert("hahaha")
-     }
-  else{
      if  (edit_index === null) { 
     if (positionDropdown.value === "GK") {
       let GK_info = {
@@ -612,7 +608,7 @@ function store_player_info() {
 edit_index = null; 
   }
   } 
-}
+
 
 // a function to empty the form inputs
 function empty_form() {
