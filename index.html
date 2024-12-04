@@ -9,7 +9,7 @@
   </head>
   <body>
     <div class="main_container">
-     <div class="bg-none">
+     <div class="bg-none field">
        <div class="soccer_field">
          <!-- Goalkeeper -->
          <div class="goalkeeper">
@@ -61,7 +61,7 @@
          </div>
      </div>
      </div>
-   <div class="bg-none ">
+   <div class="bg-none sm:hidden">
      <div id="form" class="bg-none	w-12/12 inset-x-16 inset-y-16  max-w-md mx-auto">
        <div class="bg-none	bg-white shadow-lg rounded-lg p-6 w-full max-w-2xl">
          <h1 class="bg-none	text-2xl font-bold mb-4">Player Details Form</h1>
@@ -248,7 +248,7 @@
          <!-- Save Button -->
          <div class="bg-none	mt-4 text-right">
            <button
-           onclick="validation_inputs(), store_player_info(), place_cards_in_field()" 
+           onclick="main_function()" 
            id="save"
              type="submit"
              class="bg-none	px-4 py-2 bg-blue-600 text-white font-medium rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -261,60 +261,7 @@
    </div>
     </div>
     <div class="changement_container" id="changement_section">
-    <div class="player_card">
-      <div class="top_card_side">
-        <div class="player-master-info">
-          <p>97</p>
-          <p>RW</p>
-          <img
-            src="https://selimdoyranli.com/cdn/fut-player-card/img/argentina.svg"
-            alt="Argentina"
-          />
-          <img
-            src="https://selimdoyranli.com/cdn/fut-player-card/img/barcelona.svg"
-            alt="Barcelona"
-          />
-        </div>
-        <img
-          class="player-picture"
-          src="https://selimdoyranli.com/cdn/fut-player-card/img/messi.png"
-          alt="Messi"
-        />
-      </div>
-      <div class="buttom_card_side mb-0">
-        <p class="player_name">Messi</p>
-        <div class="player-features">
-          <div class="player-features-col">
-            <span>
-              <span class="player-feature-value">97</span>
-              <span class="player-feature-title">PAC</span>
-            </span>
-            <span>
-              <span class="player-feature-value">95</span>
-              <span class="player-feature-title">SHO</span>
-            </span>
-            <span>
-              <span class="player-feature-value">94</span>
-              <span class="player-feature-title">PAS</span>
-            </span>
-          </div>
-          <div class="player-features-col">
-            <span>
-              <span class="player-feature-value">99</span>
-              <span class="player-feature-title">DRI</span>
-            </span>
-            <span>
-              <span class="player-feature-value">35</span>
-              <span class="player-feature-title">DEF</span>
-            </span>
-            <span>
-              <span class="player-feature-value">68</span>
-              <span class="player-feature-title">PHY</span>
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>   
+
     
 
     </div> 

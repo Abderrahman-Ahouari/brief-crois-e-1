@@ -631,10 +631,9 @@ function empty_form() {
 }
 
 
-// a function to validat or reject the inputs if they dont
+// a function to validat or reject the inputs 
 function validation_inputs() {
-  // checks if all inputs should be filled
-  
+  // Check if all inputs are filled
   if (
     !playerNameElement.value.trim() ||
     !playerPhotoElement.value.trim() ||
@@ -650,74 +649,95 @@ function validation_inputs() {
     !static6.value.trim() ||
     !placeinput.value.trim()
   ) {
-    alert("all inputs should be filled with informations");
-    return;
+    alert("All inputs should be filled with information!");
+    return false; 
   }
 
-  // checks that all numeric inputs are betwwen 0-100 and contain only numbers
-  const numericFields = [
-    ratingInput,
-    static1,
-    static2,
-    static3,
-    static4,
-    static5,
-    static6,
-  ];
-  for (let field of numericFields) {
-    const numeric_value = field.value.trim();
-    if (isNaN(numeric_value) || numeric_value < 0 || numeric_value > 100) {
-      alert(
-        "Numeric fields must be between 0 and 100, and contain only numbers!"
-      );
-      return;
-    }
+  const ratingValue = ratingInput.value.trim();
+  if (isNaN(ratingValue) || ratingValue < 0 || ratingValue > 100) {
+    alert("Rating must be between 0 and 100, and contain only numbers!");
+    return false;
+  }
+
+  const static1Value = static1.value.trim();
+  if (isNaN(static1Value) || static1Value < 0 || static1Value > 100) {
+    alert("Static 1 must be between 0 and 100, and contain only numbers!");
+    return false;
+  }
+
+  const static2Value = static2.value.trim();
+  if (isNaN(static2Value) || static2Value < 0 || static2Value > 100) {
+    alert("Static 2 must be between 0 and 100, and contain only numbers!");
+    return false;
+  }
+
+  const static3Value = static3.value.trim();
+  if (isNaN(static3Value) || static3Value < 0 || static3Value > 100) {
+    alert("Static 3 must be between 0 and 100, and contain only numbers!");
+    return false;
+  }
+
+  const static4Value = static4.value.trim();
+  if (isNaN(static4Value) || static4Value < 0 || static4Value > 100) {
+    alert("Static 4 must be between 0 and 100, and contain only numbers!");
+    return false;
+  }
+
+  const static5Value = static5.value.trim();
+  if (isNaN(static5Value) || static5Value < 0 || static5Value > 100) {
+    alert("Static 5 must be between 0 and 100, and contain only numbers!");
+    return false;
+  }
+
+  const static6Value = static6.value.trim();
+  if (isNaN(static6Value) || static6Value < 0 || static6Value > 100) {
+    alert("Static 6 must be between 0 and 100, and contain only numbers!");
+    return false;
   }
 
   // Validate player image link
-  const playerphotovalue = playerPhotoElement.value.trim();
+  const playerPhotoValue = playerPhotoElement.value.trim();
   if (
-    !playerphotovalue.startsWith("https://") ||
-    (!playerphotovalue.endsWith(".png") &&
-      !playerphotovalue.endsWith(".jpg") &&
-      !playerphotovalue.endsWith(".webp"))
+    !playerPhotoValue.startsWith("https://") ||
+    (!playerPhotoValue.endsWith(".png") &&
+      !playerPhotoValue.endsWith(".jpg") &&
+      !playerPhotoValue.endsWith(".webp"))
   ) {
     alert(
       "Photo link must start with 'https://' and end with '.png', '.jpg', or '.webp'!"
     );
-    return;
+    return false;
   }
 
   // Validate club logo image link
-  const clubphotovalue = playerClubElement.value.trim();
+  const clubPhotoValue = playerClubElement.value.trim();
   if (
-    !clubphotovalue.startsWith("https://") ||
-    (!clubphotovalue.endsWith(".png") &&
-      !clubphotovalue.endsWith(".jpg") &&
-      !clubphotovalue.endsWith(".webp"))
+    !clubPhotoValue.startsWith("https://") ||
+    (!clubPhotoValue.endsWith(".png") &&
+      !clubPhotoValue.endsWith(".jpg") &&
+      !clubPhotoValue.endsWith(".webp"))
   ) {
     alert(
-      "club logo link must start with 'https://' and end with '.png', '.jpg', or '.webp'!"
+      "Club logo link must start with 'https://' and end with '.png', '.jpg', or '.webp'!"
     );
-    return;
+    return false;
   }
 
   // Validate flag image link
-  const flagphotovalue = playerNationalityElement.value.trim();
+  const flagPhotoValue = playerNationalityElement.value.trim();
   if (
-    !flagphotovalue.startsWith("https://") ||
-    (!flagphotovalue.endsWith(".png") &&
-      !flagphotovalue.endsWith(".jpg") &&
-      !flagphotovalue.endsWith(".webp"))
+    !flagPhotoValue.startsWith("https://") ||
+    (!flagPhotoValue.endsWith(".png") &&
+      !flagPhotoValue.endsWith(".jpg") &&
+      !flagPhotoValue.endsWith(".webp"))
   ) {
     alert(
-      "flag photo link must start with 'https://' and end with '.png', '.jpg', or '.webp'!"
+      "Flag photo link must start with 'https://' and end with '.png', '.jpg', or '.webp'!"
     );
-    return;
+    return false;
   }
 
-  store_player_info();
-  empty_form();
+  return true;
 }
  
 
@@ -731,7 +751,7 @@ function place_cards_in_field() {
 let goalkeeper_info = document.createElement("div");
 goalkeeper_info.innerHTML = `
                  <div class="flex bg-none flex-row">
-                  <button class="delet_update_button" onclick="delete_player_card()">delete</button>
+                  <button class="delet_update_button" onclick="delete_player_card(${index})">delete</button>
                   <button class="delet_update_button" onclick="update_player_card(${index})">edit</button>
                 </div>
               <div class="top_card_side">
@@ -1095,7 +1115,7 @@ if (
 save_button.textContent = "save";
 
 }  
-
+  
 
 function delete_player_card(index) {
   let button_position = document.createElement("button")
@@ -1110,5 +1130,12 @@ button_position.classList.add("position_icon")
     }
 
 
-    
+function main_function() {
+  if (validation_inputs()) {
+    store_player_info();
+    place_cards_in_field();
+    empty_form(); 
+  }
+}
+
 console.log(used_players);

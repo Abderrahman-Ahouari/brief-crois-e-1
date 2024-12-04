@@ -253,3 +253,14 @@
   font-size: 7px;
   
   }
+
+
+  @media (max-width: 640px){
+.field{
+	transform: scale(.9);
+}
+.field{
+
+}
+
+  }
