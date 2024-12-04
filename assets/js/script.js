@@ -530,7 +530,11 @@ function get_player_info() {
 
 // function to stor the informations of players in the field
 function store_player_info() {
-  if (edit_index === null) { 
+     if (!validation_inputs) {
+   alert("hahaha")
+     }
+  else{
+     if  (edit_index === null) { 
     if (positionDropdown.value === "GK") {
       let GK_info = {
         name: playerNameElement.value,
@@ -607,7 +611,7 @@ function store_player_info() {
     }      
 edit_index = null; 
   }
-
+  } 
 }
 
 // a function to empty the form inputs
@@ -631,6 +635,7 @@ function empty_form() {
 // a function to validat or reject the inputs if they dont
 function validation_inputs() {
   // checks if all inputs should be filled
+  
   if (
     !playerNameElement.value.trim() ||
     !playerPhotoElement.value.trim() ||
@@ -1015,7 +1020,7 @@ player_info.innerHTML = `
       }
     }
   )};
- 
+
 // a variable to store the index of the function being edited   
 let edit_index = null;
 
