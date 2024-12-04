@@ -794,9 +794,9 @@ goalkeeper_info.innerHTML = `
     
 // declare the player card 
 let player_info = document.createElement("div");
-player_info.innerHTML = `
+player_info.innerHTML = ` 
                   <div class="flex bg-none flex-row">
-                    <button class="delet_update_button">delete</button>
+                    <button class="delet_update_button" onclick="delete_player_card(${index})" >delete</button>
                   <button class="delet_update_button" onclick="update_player_card(${index})" >edit</button>
                 </div>
               <div class="top_card_side">
@@ -879,7 +879,7 @@ player_info.innerHTML = `
     ) {
       
   let player_card = document.getElementById(player.position)
-  player_card.innerHTML = "";
+  player_card.innerHTML = "";  
   player_card.appendChild(player_info)
 
     } else if (player.place === "changement" && player.position === "GK") {
@@ -1097,9 +1097,10 @@ save_button.textContent = "save";
 }  
 
 
-function delete_player_card() {
-    
-}
+function delete_player_card(index) {
+    used_players.splice(index,1);
+    place_cards_in_field();
+  }
 
 
 
