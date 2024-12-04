@@ -530,7 +530,7 @@ function get_player_info() {
 
 // function to stor the informations of players in the field
 function store_player_info() {
-  if (edit_index === null) {
+  if (edit_index === null) { 
     if (positionDropdown.value === "GK") {
       let GK_info = {
         name: playerNameElement.value,
@@ -605,6 +605,7 @@ function store_player_info() {
         used_players[edit_index].place = placeinput.value;
 
     }      
+edit_index = null; 
   }
 
 }
@@ -1014,9 +1015,9 @@ player_info.innerHTML = `
       }
     }
   )};
-
+ 
 // a variable to store the index of the function being edited   
-let edit_index;
+let edit_index = null;
 
 function update_player_card(index) {
 edit_index = index;
