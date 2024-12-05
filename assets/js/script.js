@@ -456,9 +456,9 @@ function show_hide_form() {
 }
 
 function get_player_info() {
-  const query = searchInput.value.toLowerCase(); // Get search input
+  const search_input = searchInput.value.toLowerCase(); // Get search input
   const foundPlayer = players.find((player) =>
-    player.name.toLowerCase().includes(query)
+    player.name.toLowerCase().includes(search_input)
   );  
        
   if (foundPlayer) {
