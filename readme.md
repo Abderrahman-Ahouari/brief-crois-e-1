@@ -2,11 +2,9 @@
 -------
 ## 📝 Table des Matières
 1. Aperçu du Projet
-3. Fonctionnalités
-4. Technologies Utilisées
-7. Captures d'Écran
-8. Améliorations Futures
-9. Remerciements
+2. Fonctionnalités
+3. Technologies Utilisées
+6. Remerciements
 
 10. ---
 
@@ -45,3 +43,36 @@ L'utilisateur a la possibilité de modifier les informations de n'importe quelle
 
 L'utilisateur a la possibilité de supprimer n'importe quelle carte de joueur placée sur le terrain, en retirant ainsi ce joueur de la formation actuelle.
 
+
+- **Validation des Données:**
+
+Avant de créer la carte, le formulaire effectue une vérification complète : il analyse les liens, les photos, les valeurs statiques et les évaluations. Cela permet de garantir une information fiable et de haute qualité.
+
+
+
+
+
+
+## 🌟 Technologies Utilisées
+
+
+
+- **HTML:**
+j'ai utilisé HTML pour créer la structure du site web. Cela inclut la définition des sections, des balises et de l'organisation du contenu de manière claire et logique.
+​
+
+- **CSS:**
+J'ai utilisé CSS natif pour styliser le site. Cela m'a permis de personnaliser les couleurs, les polices et les dispositions afin d'améliorer l'apparence et l'expérience utilisateur.
+
+
+- **TAILWIND :**
+Enfin, j'ai intégré Tailwind CSS pour accélérer le processus de conception. Grâce à ses classes utilitaires prédéfinies, j'ai pu styliser rapidement les éléments.
+
+- **JAVA-SCRIPT:**
+J'ai utilisé JavaScript pour créer la logique du site web. Cela inclut des fonctionnalités telles que l'ajout de cartes dans un tableau, la recherche des informations d'un joueur par son nom, le stockage des informations des joueurs dans un tableau, ainsi que leur modification ou suppression. De plus, j'ai implémenté une validation des informations des joueurs basée sur des conditions spécifiques.
+
+
+
+
+
+11. # Merci pour votre attention
